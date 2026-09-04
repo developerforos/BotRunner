@@ -1,0 +1,6 @@
+{
+  "name": "BotRunner Hub",
+  "description": "Deploy and manage Python and Node.js scripts instantly with full Telegram bot controls and automatic dependency installation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

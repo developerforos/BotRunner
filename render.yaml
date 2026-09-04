@@ -1,0 +1,25 @@
+services:
+  # ==========================================================
+  # BotRunner Hub - Render Web Service Deployment Blueprint
+  # ==========================================================
+  - type: web
+    name: botrunner-hub
+    runtime: node
+    plan: starter
+    region: oregon
+    buildCommand: npm install --include=dev && npm run build
+    startCommand: npm run start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false # Set in Render Dashboard or Environment tab
+      - key: GEMINI_API_KEY
+        sync: false # Optional Gemini API key
+    disk:
+      name: bot-deployments-storage
+      mountPath: /opt/render/project/src/deployments
+      sizeGB: 1
